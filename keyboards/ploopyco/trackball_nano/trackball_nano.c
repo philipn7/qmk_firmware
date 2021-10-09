@@ -18,7 +18,6 @@
  */
 
 #include "trackball_nano.h"
-#include "wait.h"
 
 #ifndef OPT_DEBOUNCE
 #    define OPT_DEBOUNCE 5  // (ms) 			Time between scroll events
@@ -37,14 +36,14 @@
 #endif
 
 #ifndef PLOOPY_DPI_OPTIONS
-#    define PLOOPY_DPI_OPTIONS { CPI375, CPI750, CPI1375 }
+#    define PLOOPY_DPI_OPTIONS { CPI375 , CPI500, CPI750 }
 #    ifndef PLOOPY_DPI_DEFAULT
-#        define PLOOPY_DPI_DEFAULT 2
+#        define PLOOPY_DPI_DEFAULT 1
 #    endif
 #endif
 
 #ifndef PLOOPY_DPI_DEFAULT
-#    define PLOOPY_DPI_DEFAULT 2
+#    define PLOOPY_DPI_DEFAULT 1
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { };
@@ -62,6 +61,11 @@ uint16_t dpi_array[] = PLOOPY_DPI_OPTIONS;
 // Compile time accel selection
 // Valid options are ACC_NONE, ACC_LINEAR, ACC_CUSTOM, ACC_QUADRATIC
 
+bool PloopyAcceleration = false;
+bool PloopyNumlockScroll = false;
+int16_t PloopyNumlockScrollVDir = 1;
+bool DoScroll = false;
+
 // Trackball State
 bool is_scroll_clicked = false;
 bool BurstState = false;  // init burst state for Trackball module
@@ -71,13 +75,44 @@ uint16_t lastMidClick = 0;  // Stops scrollwheel from being read if it was press
 uint8_t OptLowPin = OPT_ENC1;
 bool debug_encoder = false;
 
+#ifndef NUM_SCROLL_POLL
+#define NUM_SCROLL_POLL 25
+#endif /* ifndef NUM_SCROLL_POLL */
+uint8_t scroll_poll_count = 0;
 __attribute__((weak)) void process_mouse_user(report_mouse_t* mouse_report, int16_t x, int16_t y) {
+    if (DoScroll) {
+        if(++scroll_poll_count >= NUM_SCROLL_POLL){
+            scroll_poll_count = 0;
+            // Scroll is very sensitive if you use the default values.
+            // We can't divide it by anything to reduce the sensitivity, cause that would zero out small input values.
+            // Instead we simply want either a 0, 1, or -1 depending on the input value's sign.
+            x = (x > 0 ? 1 : (x < 0 ? -1 : 0));
+            y = PloopyNumlockScrollVDir * (y > 0 ? 1 : (y < 0 ? -1 : 0));
+            mouse_report->h = x;
+            mouse_report->v = y;
+        }
+        return;
+    }
+
+
+    if (PloopyAcceleration) {
+        // Testing revealed the max reasonable x/y values were ~16.
+        // `x*x/16 + x` results in ~2x speed at the max value, while maintaining 1x speed at the minimum.
+        // But the x*x cancels the sign, so we need to negate it if the input value is negative.
+        x = (x > 0 ? x*x/24+x : -x*x/24+x);
+        y = (y > 0 ? y*y/24+y : -y*y/24+y);
+    }
+
     mouse_report->x = x;
     mouse_report->y = y;
 }
 
 __attribute__((weak)) void process_mouse(report_mouse_t* mouse_report) {
     report_adns_t data = adns_read_burst();
+
+    // Note: using scroll_lock here didn't work when I tested it.
+    // But using num_lock does work, so we use that instead.
+    DoScroll = PloopyNumlockScroll && host_keyboard_led_state().num_lock;
 
     if (data.dx != 0 || data.dy != 0) {
         if (debug_mouse)
@@ -140,7 +175,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t* record) {
 void keyboard_pre_init_kb(void) {
     // debug_enable = true;
     // debug_matrix = true;
-    // debug_mouse = true;
+    debug_mouse = true;
     // debug_encoder = true;
 
     setPinInput(OPT_ENC1);
@@ -165,22 +200,6 @@ void keyboard_pre_init_kb(void) {
 void pointing_device_init(void) {
     adns_init();
     opt_encoder_init();
-
-    // reboot the adns.
-    // if the adns hasn't initialized yet, this is harmless.
-    adns_write_reg(REG_CHIP_RESET, 0x5a);
-
-    // wait maximum time before adns is ready.
-    // this ensures that the adns is actuall ready after reset.
-    wait_ms(55);
-
-    // read a burst from the adns and then discard it.
-    // gets the adns ready for write commands
-    // (for example, setting the dpi).
-    adns_read_burst();
-
-    // set the DPI.
-    adns_set_cpi(dpi_array[keyboard_config.dpi_config]);
 }
 
 void pointing_device_task(void) {
@@ -204,4 +223,10 @@ void matrix_init_kb(void) {
         eeconfig_init_kb();
     }
     matrix_init_user();
+}
+
+void keyboard_post_init_kb(void) {
+    adns_set_cpi(dpi_array[keyboard_config.dpi_config]);
+
+    keyboard_post_init_user();
 }
