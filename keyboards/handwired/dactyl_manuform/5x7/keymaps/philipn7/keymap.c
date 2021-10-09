@@ -17,6 +17,8 @@ enum layers { BASE, NAV, SYM, NUM, FUN };
 #define TAB_R   LCTL(KC_TAB)
 #define TAB_L   LCTL(LSFT(KC_TAB))
 #define TAB_RO  LCTL(LSFT(KC_T))
+#define SUP_L   LGUI(KC_LEFT)
+#define SUP_R   LGUI(KC_RIGHT)
 
 enum keycodes {
   G_SCRL = SAFE_RANGE,
@@ -35,19 +37,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
                      KC_BTN1,    KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,     KC_DEL,
                       KC_BTN2,   KC_M,    KC_N,    KC_E,     KC_I,     KC_O,     KC_ENT,
-                                 KC_K,    KC_H,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_CAPS,
-                                                 KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
+                                 KC_K,    KC_H,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_LSFT),
+                                                 SUP_L, SUP_R,    U_NA,  KC_CAPS,
         MO(FUN),    MO(NUM),    LT(SYM, KC_BSPC),
-        KC_PGUP, KC_PGDN ),
+        U_NA, KC_LGUI ),
 
 [NAV] = LAYOUT_5x7(
   // left hand
    RESET,    U_NA,        U_NA,    U_NA,   U_NA,   U_NA,   KC_NUMLOCK,
    KC_LCTL,   U_NA,       U_CUT,   U_CPY,  U_PST,  G_SCRL,   TO(BASE),
    KC_LSHIFT, U_UND,      U_RDO,    U_NA,   U_NA,   U_NA,
-   KC_LALT,   RESET,      TAB_L,   TAB_R,
-                                      KC_BTN1,   KC_BTN2,   KC_BTN3,
-                                                KC_TAB,   KC_LALT,
+   KC_LALT,   KC_LGUI,      TAB_L,   TAB_R,
+                                      U_NA,   U_NA,   U_NA,
+                                                KC_LGUI,   KC_LALT,
         // right hand
                      KC_BTN1,    KC_INS,  KC_HOME, KC_UP,   KC_END,  U_NA,     KC_DEL,
                       KC_BTN2,   U_NA,    KC_LEFT, KC_DOWN, KC_RGHT, U_NA,     KC_ENT,
@@ -86,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 KC_MINS,  KC_1,    KC_2,    KC_3,     KC_SLSH,  KC_CAPS,
                                                    KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,    U_NA,    U_NA,
-        U_NA, U_NA ),
+        U_NA, KC_LGUI ),
 
 [FUN] = LAYOUT_5x7(
   // left hand
