@@ -36,14 +36,14 @@
 #endif
 
 #ifndef PLOOPY_DPI_OPTIONS
-#    define PLOOPY_DPI_OPTIONS { CPI375 , CPI500, CPI750 }
+#    define PLOOPY_DPI_OPTIONS { CPI250 , CPI375, CPI500 }
 #    ifndef PLOOPY_DPI_DEFAULT
-#        define PLOOPY_DPI_DEFAULT 1
+#        define PLOOPY_DPI_DEFAULT 0
 #    endif
 #endif
 
 #ifndef PLOOPY_DPI_DEFAULT
-#    define PLOOPY_DPI_DEFAULT 1
+#    define PLOOPY_DPI_DEFAULT 0
 #endif
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = { };
@@ -99,8 +99,8 @@ __attribute__((weak)) void process_mouse_user(report_mouse_t* mouse_report, int1
         // Testing revealed the max reasonable x/y values were ~16.
         // `x*x/16 + x` results in ~2x speed at the max value, while maintaining 1x speed at the minimum.
         // But the x*x cancels the sign, so we need to negate it if the input value is negative.
-        x = (x > 0 ? x*x/24+x : -x*x/24+x);
-        y = (y > 0 ? y*y/24+y : -y*y/24+y);
+        x = (x > 0 ? x*x/16+x : -x*x/24+x);
+        y = (y > 0 ? y*y/16+y : -y*y/24+y);
     }
 
     mouse_report->x = x;
