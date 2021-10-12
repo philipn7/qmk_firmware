@@ -28,6 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = LAYOUT_5x7(
   // left hand
+<<<<<<< HEAD
    KC_ESC,    KC_Q,         KC_W,    KC_F,   KC_P,   KC_B,   KC_BTN3,
    KC_LCTL,   KC_A,         KC_R,    KC_S,   KC_T,   KC_G,   SCRL_WHL,
    KC_LSHIFT, KC_Z,         KC_X,    KC_C,   KC_D,   KC_V,
@@ -36,12 +37,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 =======
    SCRL_WHL,   KC_BTN3,      KC_BTN2,   KC_BTN1,
 >>>>>>> c913a9b0e4 (moved la)
+=======
+   KC_ESC,    KC_Q,         KC_W,    KC_F,   KC_P,   KC_B,   MO(RST),
+   KC_LCTL,   KC_A,         KC_R,    KC_S,   KC_T,   KC_G,   U_NA,
+   KC_LSHIFT, KC_Z,         KC_X,    KC_C,   KC_D,   KC_V,
+   SCRL_WHL,   KC_BTN3,      KC_BTN2,   KC_BTN1,
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
                                          LT(NAV,KC_SPC),   KC_END,  KC_HOME,
                                                 KC_TAB,   KC_LALT,
         // right hand
                      KC_BTN1,    KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,     KC_BSPC,
                       KC_BTN2,   KC_M,    KC_N,    KC_E,     KC_I,     KC_O,     KC_ENT,
                                  KC_K,    KC_H,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_LSFT),
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                  U_NA, U_NA,    U_NA,  U_NA,
         MO(FUN),    MO(NUM),    LT(SYM, KC_BSPC),
@@ -55,6 +63,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NAV] = LAYOUT_5x7(
   // left hand
    KC_ESC,    KC_CAPS,        U_NA,    U_NA,   U_NA,   U_NA,   KC_NUMLOCK,
+=======
+                                                 SUP_L, SUP_R,    U_NA,  KC_CAPS,
+        MO(FUN),    MO(NUM),    MO(SYM),
+        KC_DEL, KC_LGUI ),
+
+[NAV] = LAYOUT_5x7(
+  // left hand
+   KC_ESC,    U_NA,        U_NA,    U_NA,   U_NA,   U_NA,   KC_NUMLOCK,
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
    KC_LCTL,   U_NA,       U_CUT,   U_CPY,  U_PST,  U_NA,   U_NA,
    KC_LSHIFT, U_UND,      U_RDO,    U_NA,   U_NA,   U_NA,
    U_NA,   U_NA,      U_NA,    U_NA,
@@ -64,16 +81,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_BTN1,    KC_BTN3,  KC_HOME, KC_UP,   KC_END,  U_NA,     KC_BSPC,
                       KC_BTN2,   U_NA,    KC_LEFT, KC_DOWN, KC_RGHT, U_NA,     KC_ENT,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                  KC_INS,    U_NA,    U_NA,    U_NA,    U_NA,    U_NA,
                                                  U_NA,   U_NA,   U_NA,  U_NA,
         U_NA,    U_NA,    KC_BSPC,
         U_NA, KC_LGUI ),
 =======
+=======
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
                                  KC_INS,    U_NA,    U_NA,    U_NA,    U_NA,    KC_CAPS,
                                                  KC_LEFT,   KC_UP,   KC_DOWN,  KC_RGHT,
         U_NA,    U_NA,    U_NA,
         KC_DEL, KC_LGUI ),
+<<<<<<< HEAD
 >>>>>>> c913a9b0e4 (moved la)
+=======
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
 
 [SYM] = LAYOUT_5x7(
   // left hand
@@ -90,10 +113,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                            KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,    U_NA,    U_NA,
 <<<<<<< HEAD
+<<<<<<< HEAD
         U_NA, KC_LGUI ),
 =======
         KC_DEL, KC_LGUI ),
 >>>>>>> c913a9b0e4 (moved la)
+=======
+        KC_DEL, KC_LGUI ),
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
 
 [NUM] = LAYOUT_5x7(
   // left hand
@@ -126,10 +153,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                  KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,     U_NA,    U_NA,
 <<<<<<< HEAD
+<<<<<<< HEAD
         U_NA, KC_LGUI ),
 =======
         KC_DEL, KC_LGUI ),
 >>>>>>> c913a9b0e4 (moved la)
+=======
+        KC_DEL, KC_LGUI ),
+>>>>>>> 0b44eaf3a20cec74b02499ae8a1e606651af3f63
 
 [RST] = LAYOUT_5x7(
   // left hand
