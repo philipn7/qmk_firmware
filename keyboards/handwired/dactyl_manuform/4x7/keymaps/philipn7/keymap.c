@@ -50,12 +50,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                          LT(NAV,KC_SPC),   KC_END,  KC_HOME,
                                                 KC_TAB,   KC_LALT,
         // right hand
-                     KC_BTN1,    KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,     KC_DEL,
+                     KC_BTN1,    KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,     KC_BSPC,
                       KC_BTN2,   KC_M,    KC_N,    KC_E,     KC_I,     KC_O,     KC_ENT,
                                  KC_K,    KC_H,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_LSFT),
                                                  U_NA, U_NA,    U_NA,  U_NA,
-        MO(FUN),    MO(NUM),    LT(SYM, KC_BSPC),
-        U_NA, KC_LGUI ),
+        MO(FUN),    MO(NUM),    MO(SYM),
+        KC_DEL, KC_LGUI ),
 
 [NAV] = LAYOUT_4x7(
   // left hand
@@ -66,12 +66,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       U_NA,   U_NA,   U_NA,
                                                 U_NA,   U_NA,
         // right hand
-                     KC_BTN1,    KC_BTN3,  KC_HOME, KC_UP,   KC_END,  U_NA,     KC_DEL,
+                     KC_BTN1,    KC_BTN3,  KC_HOME, KC_UP,   KC_END,  U_NA,     KC_BSPC,
                       KC_BTN2,   U_NA,    KC_LEFT, KC_DOWN, KC_RGHT, U_NA,     KC_ENT,
                                  KC_INS,    U_NA,    U_NA,    U_NA,    U_NA,    U_NA,
                                                  U_NA,   U_NA,   U_NA,  U_NA,
         U_NA,    U_NA,    KC_BSPC,
-        U_NA, KC_LGUI ),
+        KC_DEL, KC_LGUI ),
 
 [SYM] = LAYOUT_4x7(
   // left hand
@@ -82,12 +82,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       KC_SPC,   KC_UNDS, KC_DOT,
                                                 KC_TAB,   KC_LALT,
         // right hand
-                     KC_BTN1,   U_NA,       KC_BSLS,       KC_SLSH,    U_NA,     KC_DQUO,     KC_DEL,
+                     KC_BTN1,   U_NA,       KC_BSLS,       KC_SLSH,    U_NA,     KC_DQUO,     KC_BSPC,
                       KC_BTN2,  KC_PLUS,    KC_MINS,       KC_ASTR,  KC_COLN,    KC_SCLN,     KC_ENT,
                                 KC_AMPR,    KC_EQL,        KC_LT,      KC_GT,    KC_QUES,  KC_CAPS,
                                                            KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,    U_NA,    U_NA,
-        U_NA, KC_LGUI ),
+        KC_DEL, KC_LGUI ),
 
 [NUM] = LAYOUT_4x7(
   // left hand
@@ -98,12 +98,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       KC_SPC,   KC_UNDS,   KC_DOT,
                                                 KC_TAB,   KC_LALT,
         // right hand
-                     KC_BTN1,   KC_PLUS,  KC_7,    KC_8,    KC_9,    KC_BSPC,     KC_DEL,
+                     KC_BTN1,   KC_PLUS,  KC_7,    KC_8,    KC_9,    KC_BSPC,     KC_BSPC,
                      KC_BTN2,   KC_0,     KC_4,    KC_5,    KC_6,    KC_ASTR,     KC_ENT,
                                 KC_MINS,  KC_1,    KC_2,    KC_3,     KC_SLSH,  KC_CAPS,
                                                    KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,    U_NA,    U_NA,
-        U_NA, KC_LGUI ),
+        KC_DEL, KC_LGUI ),
 
 [FUN] = LAYOUT_4x7(
   // left hand
@@ -114,28 +114,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       U_NA,    U_NA,    U_NA,
                                                 U_NA,   KC_LALT,
         // right hand
-                     KC_BTN1,    KC_PSCR, KC_F7,   KC_F8,   KC_F9,   KC_F12,     KC_DEL,
+                     KC_BTN1,    KC_PSCR, KC_F7,   KC_F8,   KC_F9,   KC_F12,     KC_BSPC,
                       KC_BTN2,   KC_SLCK, KC_F4,   KC_F5,   KC_F6,   KC_F11,     KC_ENT,
                                  KC_PAUS, KC_F1,   KC_F2,   KC_F3,   KC_F10,  KC_CAPS,
                                                  KC_LEFT, KC_UP,    KC_DOWN,  KC_RGHT,
         U_NA,     U_NA,    U_NA,
-        U_NA, KC_LGUI ),
-
-[RST] = LAYOUT_4x7(
-  // left hand
-   RESET,    U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
-   U_NA,   U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
-   U_NA, U_NA,    U_NA, U_NA,    U_NA,    U_NA,
-   U_NA,   U_NA,      U_NA,    U_NA,
-                                      U_NA,    U_NA,    U_NA,
-                                                U_NA,   U_NA,
-        // right hand
-                     U_NA,    U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
-                      U_NA,    U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
-                                 U_NA, U_NA,    U_NA, U_NA,    U_NA,    U_NA,
-                                                 U_NA,   U_NA,      U_NA,    U_NA,
-        U_NA,    U_NA,    U_NA,
-        U_NA, U_NA )
+        U_NA, KC_LGUI )
 
 };
 
