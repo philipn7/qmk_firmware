@@ -41,7 +41,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[BASE] = LAYOUT_5x7(
+[BASE] = LAYOUT_4x7(
   // left hand
    KC_ESC,    KC_Q,         KC_W,    KC_F,   KC_P,   KC_B,   KC_BTN3,
    KC_LCTL,   KC_A,         KC_R,    KC_S,   KC_T,   KC_G,   SCRL_WHL,
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MO(FUN),    MO(NUM),    LT(SYM, KC_BSPC),
         U_NA, KC_LGUI ),
 
-[NAV] = LAYOUT_5x7(
+[NAV] = LAYOUT_4x7(
   // left hand
    KC_ESC,    KC_CAPS,        U_NA,    U_NA,   U_NA,   U_NA,   KC_NUMLOCK,
    KC_LCTL,   U_NA,       U_CUT,   U_CPY,  U_PST,  U_NA,   U_NA,
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         U_NA,    U_NA,    KC_BSPC,
         U_NA, KC_LGUI ),
 
-[SYM] = LAYOUT_5x7(
+[SYM] = LAYOUT_4x7(
   // left hand
    KC_ESC,    KC_LCBR, KC_EXLM, KC_AT,  KC_RCBR, KC_PIPE,   U_NA,
    KC_LCTL,   KC_LPRN, KC_HASH, KC_DLR,   KC_RPRN, KC_GRV,   U_NA,
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         U_NA,    U_NA,    U_NA,
         U_NA, KC_LGUI ),
 
-[NUM] = LAYOUT_5x7(
+[NUM] = LAYOUT_4x7(
   // left hand
    KC_ESC,    KC_LCBR, KC_EXLM, KC_AT,  KC_RCBR, KC_PIPE,   U_NA,
    KC_LCTL,   KC_LPRN, KC_HASH, KC_DLR,   KC_RPRN, KC_GRV,   U_NA,
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         U_NA,    U_NA,    U_NA,
         U_NA, KC_LGUI ),
 
-[FUN] = LAYOUT_5x7(
+[FUN] = LAYOUT_4x7(
   // left hand
    KC_ESC,    U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
    KC_LCTL,   U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
@@ -121,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         U_NA,     U_NA,    U_NA,
         U_NA, KC_LGUI ),
 
-[RST] = LAYOUT_5x7(
+[RST] = LAYOUT_4x7(
   // left hand
    RESET,    U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
    U_NA,   U_NA,    U_NA, U_NA,    U_NA,    U_NA,   U_NA,
