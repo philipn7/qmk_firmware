@@ -59,16 +59,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [NAV] = LAYOUT_4x7(
   // left hand
-   KC_ESC,    KC_CAPS,        U_NA,    U_NA,   U_NA,   U_NA,   KC_NUMLOCK,
-   KC_LCTL,   U_NA,       U_CUT,   U_CPY,  U_PST,  U_NA,   U_NA,
-   KC_LSHIFT, U_UND,      U_RDO,    U_NA,   U_NA,   U_NA,
-   U_NA,   U_NA,      U_NA,    U_NA,
+   KC_ESC,    KC_CAPS,     KC_HOME, KC_UP,   KC_END,  U_NA,    U_NA,
+   KC_LCTL,   U_NA,       KC_LEFT, KC_DOWN, KC_RGHT, U_NA,    U_NA,
+   KC_LSHIFT, U_NA,        U_NA,    U_NA,    U_NA,    U_NA,
+   U_NA,      U_NA,       U_NA,    U_NA,
                                       U_NA,   U_NA,   U_NA,
                                                 U_NA,   U_NA,
         // right hand
-                     KC_BTN1,    KC_BTN3,  KC_HOME, KC_UP,   KC_END,  U_NA,     KC_BSPC,
-                      KC_BTN2,   U_NA,    KC_LEFT, KC_DOWN, KC_RGHT, U_NA,     KC_ENT,
-                                 KC_INS,    U_NA,    U_NA,    U_NA,    U_NA,    U_NA,
+                     KC_BTN1,    KC_BTN3,  U_NA,  U_NA,  U_NA,  U_NA, KC_BSPC,
+                      KC_BTN2,   U_NA,    U_NA,  U_NA,  U_NA,  U_NA, KC_ENT,
+                                 KC_INS,   U_NA,  U_NA,  U_NA,  U_NA, U_NA,
                                                  U_NA,   U_NA,   U_NA,  U_NA,
         U_NA,    U_NA,    KC_BSPC,
         KC_DEL, KC_LGUI ),
