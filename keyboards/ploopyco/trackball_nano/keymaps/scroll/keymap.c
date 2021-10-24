@@ -25,7 +25,7 @@
 // placeholder file so it will compile
 
 void keyboard_pre_init_user() {
-    PloopyAcceleration = true;
+    PloopyAcceleration = false;
     PloopyNumlockScroll = true;
     PloopyNumlockScrollVDir = -1;
 }
