@@ -46,31 +46,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_ESC,    KC_Q,         KC_W,    KC_F,   KC_P,   KC_B,   KC_BTN3,
    KC_LCTL,   KC_A,         KC_R,    KC_S,   KC_T,   KC_G,   SCRL_WHL,
    KC_LSHIFT, KC_Z,         KC_X,    KC_C,   KC_D,   KC_V,
-   U_NA,   U_NA,      U_NA,   TD(TD_RESET),
-                                         LT(NAV,KC_SPC),   KC_END,  KC_HOME,
+   U_NA,   U_NA,      MO(NAV),   TD(TD_RESET),
+                                         KC_SPC,   KC_END,  KC_HOME,
                                                 KC_TAB,   KC_LALT,
         // right hand
                      KC_BTN1,    KC_J,    KC_L,    KC_U,     KC_Y,     KC_QUOT,     KC_BSPC,
                       KC_BTN2,   KC_M,    KC_N,    KC_E,     KC_I,     KC_O,     KC_ENT,
                                  KC_K,    KC_H,    KC_COMM,  KC_DOT,   KC_SLSH,  OSM(MOD_LSFT),
                                                  U_NA, U_NA,    U_NA,  U_NA,
-        MO(FUN),    MO(NUM),    MO(SYM),
+        MO(FUN),    MO(NAV),    MO(SYM),
         KC_DEL, KC_LGUI ),
 
 [NAV] = LAYOUT_4x7(
   // left hand
    KC_ESC,        U_NA,  U_NA,    KC_UP,   U_NA,  U_NA,    U_NA,
-   OSM(MOD_LCTL), OSM(MOD_LALT),  KC_LEFT, KC_DOWN, KC_RGHT, U_NA,    U_NA,
+   OSM(MOD_LCTL), U_NA,  KC_LEFT, KC_DOWN, KC_RGHT, U_NA,    U_NA,
    KC_LSHIFT,     U_NA,   U_NA,    U_NA,    U_NA,    U_NA,
    U_NA,          U_NA,    U_NA,    RESET,
-                                      U_NA,   U_NA,   U_NA,
+                                      OSM(MOD_LCTL),   OSM(MOD_LALT),   U_NA,
                                                 U_NA,   U_NA,
         // right hand
                      KC_BTN1,   U_NA,  KC_7,    KC_8,    KC_9,    KC_BSPC,     KC_BSPC,
-                     KC_BTN2,   KC_0,     KC_4,    KC_5,    KC_6,    U_NA,     KC_ENT,
+                     KC_BTN2,   KC_0,  KC_4,    KC_5,    KC_6,    U_NA,     KC_ENT,
                                 U_NA,  KC_1,    KC_2,    KC_3,     U_NA,  U_NA,
                                                    U_NA, U_NA,    U_NA,  U_NA,
-        U_NA,    U_NA,    KC_BSPC,
+        U_NA,    U_NA,    U_NA,
         KC_DEL, KC_LGUI ),
 
 [SYM] = LAYOUT_4x7(
