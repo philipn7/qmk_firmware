@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_ESC,        U_NA,  U_NA,    KC_UP,   U_NA,  U_NA,    U_NA,
    OSM(MOD_LCTL), OSM(MOD_LALT),  KC_LEFT, KC_DOWN, KC_RGHT, U_NA,    U_NA,
    KC_LSHIFT,     U_NA,   U_NA,    U_NA,    U_NA,    U_NA,
-   U_NA,          U_NA,    U_NA,    U_NA,
+   U_NA,          U_NA,    U_NA,    RESET,
                                       U_NA,   U_NA,   U_NA,
                                                 U_NA,   U_NA,
         // right hand
