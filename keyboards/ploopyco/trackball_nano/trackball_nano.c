@@ -38,7 +38,7 @@
 #ifndef PLOOPY_DPI_OPTIONS
 #    define PLOOPY_DPI_OPTIONS { CPI250 , CPI375, CPI500 }
 #    ifndef PLOOPY_DPI_DEFAULT
-#        define PLOOPY_DPI_DEFAULT 0
+#        define PLOOPY_DPI_DEFAULT 2
 #    endif
 #endif
 
