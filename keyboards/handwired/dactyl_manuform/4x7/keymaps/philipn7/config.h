@@ -30,6 +30,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
 
+// If you press a dual-role key, tap another key and then release the dual-role key, 
+// all within the tapping term, the dual-role key will perform its hold action instead.
+#define PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS
+
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT
 

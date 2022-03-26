@@ -197,9 +197,26 @@ void keyboard_pre_init_kb(void) {
     keyboard_pre_init_user();
 }
 
+
 void pointing_device_init(void) {
     adns_init();
     opt_encoder_init();
+
+    // reboot the adns.
+    // if the adns hasn't initialized yet, this is harmless.
+    adns_write_reg(REG_CHIP_RESET, 0x5a);
+
+    // wait maximum time before adns is ready.
+    // this ensures that the adns is actuall ready after reset.
+    wait_ms(55);
+
+    // read a burst from the adns and then discard it.
+    // gets the adns ready for write commands
+    // (for example, setting the dpi).
+    adns_read_burst();
+
+    // set the DPI.
+    adns_set_cpi(dpi_array[keyboard_config.dpi_config]);
 }
 
 void pointing_device_task(void) {
